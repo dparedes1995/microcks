@@ -17,6 +17,8 @@ services:
       KEYCLOAK_ADMIN_PASSWORD: "admin"
       KC_HOSTNAME_ADMIN_URL: "http://35.175.248.146:18080"
       KC_HOSTNAME_URL: "http://35.175.248.146:18080"
+      KC_HOSTNAME_STRICT: "false"
+      KC_HOSTNAME_STRICT_HTTPS: "false"
     volumes:
       - "./keycloak-realm/microcks-realm-sample.json:/opt/keycloak/data/import/microcks-realm.json"
     command:
