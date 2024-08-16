@@ -15,13 +15,14 @@ services:
     environment:
       KEYCLOAK_ADMIN: "admin"
       KEYCLOAK_ADMIN_PASSWORD: "admin"
-      KC_HOSTNAME_ADMIN_URL: "http://35.175.248.146:18080"  # Cambiar a la IP pública del EC2
-      KC_HOSTNAME_URL: "http://35.175.248.146:18080"  # Cambiar a la IP pública del EC2
+      KC_HOSTNAME_ADMIN_URL: "http://35.175.248.146:18080"
+      KC_HOSTNAME_URL: "http://35.175.248.146:18080"
     volumes:
       - "./keycloak-realm/microcks-realm-sample.json:/opt/keycloak/data/import/microcks-realm.json"
     command:
       - "start-dev"
       - "--import-realm"
+      - "--https-required=none"
 
   postman:
     image: quay.io/microcks/microcks-postman-runtime:latest
