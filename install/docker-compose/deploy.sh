@@ -17,5 +17,8 @@ echo "La IP pública del EC2 es: $EC2_PUBLIC_IP"
 # Reemplazar 'localhost' con la IP pública en el archivo docker-compose.yml
 sed -i "s/localhost/$EC2_PUBLIC_IP/g" docker-compose.yml
 
+# Reemplazar 'localhost' con la IP pública en el archivo microcks-realm-sample.json
+sed -i "s/localhost/$EC2_PUBLIC_IP/g" keycloak-realm/microcks-realm-sample.json
+
 # Levantar los servicios con docker-compose
 docker compose up -d
