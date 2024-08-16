@@ -24,6 +24,7 @@ services:
     command:
       - "start-dev"
       - "--import-realm"
+      - "--spi-login-protocol-openid-connect-require-ssl=none"
 
   postman:
     image: quay.io/microcks/microcks-postman-runtime:latest
