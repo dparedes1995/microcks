@@ -18,4 +18,4 @@ echo "La IP pública del EC2 es: $EC2_PUBLIC_IP"
 sed -i "s/localhost/$EC2_PUBLIC_IP/g" docker-compose.yml
 
 # Levantar los servicios con docker-compose
-docker-compose up -d
+docker compose up -d
