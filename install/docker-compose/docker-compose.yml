@@ -4,10 +4,8 @@ services:
   mongo:
     image: mongo:4.4.29
     container_name: microcks-db
-    ports:
-      - "27017:27017"
     volumes:
-      - microcks-data:/data/db
+      - "~/tmp/microcks-data:/data/db"
 
   keycloak:
     image: quay.io/keycloak/keycloak:24.0.4
@@ -28,8 +26,6 @@ services:
   postman:
     image: quay.io/microcks/microcks-postman-runtime:latest
     container_name: microcks-postman-runtime
-    ports:
-      - "3000:3000"
 
   app:
     depends_on:
@@ -52,5 +48,3 @@ services:
       - KEYCLOAK_PUBLIC_URL=http://localhost:18080
       - JAVA_OPTIONS=-Dspring.security.oauth2.resourceserver.jwt.issuer-uri=http://localhost:18080/realms/microcks -Dspring.security.oauth2.resourceserver.jwt.jwk-set-uri=http://keycloak:8080/realms/microcks/protocol/openid-connect/certs
       #- MAX_UPLOAD_FILE_SIZE=3MB
-volumes:
-  microcks-data:
