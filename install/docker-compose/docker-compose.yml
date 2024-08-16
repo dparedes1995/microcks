@@ -20,7 +20,8 @@ services:
     volumes:
       - "./keycloak-realm/microcks-realm-sample.json:/opt/keycloak/data/import/microcks-realm.json"
     command:
-      - start-dev --import-realm
+      - "start-dev"
+      - "--import-realm"
 
   postman:
     image: quay.io/microcks/microcks-postman-runtime:latest
